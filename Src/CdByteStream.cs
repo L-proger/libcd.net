@@ -1,11 +1,4 @@
-﻿using CrReader;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CdReader {
+﻿namespace LibCD {
     public class CdByteStream : System.IO.Stream {
         public CdSectorStream Source { get; private set; }
         public long StartSector { get; private set; }

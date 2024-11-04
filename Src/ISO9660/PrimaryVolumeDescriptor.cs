@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 
-namespace CdReader.ISO9660
-{
+namespace LibCD.ISO9660 {
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Ansi)]
     public struct PrimaryVolumeDescriptor
     {

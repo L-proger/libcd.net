@@ -1,12 +1,6 @@
-﻿using CrReader;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 
-namespace CdReader.Sony.Ps1 {
+namespace LibCD.Sony.Ps1 {
     public class LicenseStringDescriptor {
         public const long SectorIndex = 4;
 

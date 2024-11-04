@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 
-namespace CdReader.ISO9660 {
+namespace LibCD.ISO9660 {
     public class DirectoryRecordStreamMarshaler : Serialization.IStreamMarshaler {
         public object Read(Stream s) {
             DirectoryRecord result = new DirectoryRecord();

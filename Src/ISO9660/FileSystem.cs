@@ -1,11 +1,4 @@
-﻿using CrReader;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CdReader.ISO9660 {
+﻿namespace LibCD.ISO9660 {
     public class FileSystem {
 
         public class File {

@@ -1,15 +1,6 @@
-﻿
+﻿using System.Runtime.CompilerServices;
 
-using CdReader;
-using CdReader.ISO9660;
-using CrReader;
-using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
-
-namespace CdReader
-{
+namespace LibCD {
     class App {
         static string CalledFileDir([CallerFilePath] string path = null) {
             return System.IO.Path.GetDirectoryName(path);
@@ -27,7 +18,7 @@ namespace CdReader
         }
 
 
-        static void PrintFileSystem(FileSystem.Directory dir, string fullPath) {
+        static void PrintFileSystem(ISO9660.FileSystem.Directory dir, string fullPath) {
             fullPath += dir.Name;
             Console.WriteLine(fullPath);
 
@@ -44,7 +35,7 @@ namespace CdReader
             Console.WriteLine(ImageFilePath);
 
 
-            var fs = new FileSystem(File.OpenRead(ImageFilePath));
+            var fs = new ISO9660.FileSystem(File.OpenRead(ImageFilePath));
 
             PrintFileSystem(fs.RootDirectory, "");
 
@@ -93,7 +84,7 @@ namespace CdReader
 
 
             foreach (var file in fs.RootDirectory.Files) {
-                var outDir = @"E:\L\Projects\SilentHillLoader\CdContent\Extracted";
+                var outDir = @"E:\CdContent\Extracted";
 
                 var fn = file.Name;
 
@@ -126,7 +117,6 @@ namespace CdReader
                 outStream.Close();
             }
 
-            //var licenseString = Sony.Ps1.LicenseStringDescriptor.Read(stream);
             Console.WriteLine("Done");
 
         }

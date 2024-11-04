@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace CdReader.ISO9660 {
+namespace LibCD.ISO9660 {
     public enum VolumeDescriptorType : byte {
         BootRecord = 0,
         PrimaryVolumeDescriptor = 1,

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CrReader {
+﻿namespace LibCD {
     public class CdSectorStream {
         public const int PhysicalSectorSize = 2352;
         public long Length { get; private set; }
