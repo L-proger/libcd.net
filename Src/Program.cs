@@ -36,6 +36,7 @@ namespace LibCD {
 
 
             var fs = new ISO9660.FileSystem(File.OpenRead(ImageFilePath));
+            var xaDiscLabel = fs.PrimaryVolumeDescriptor.GetXADiscLabel();
 
             PrintFileSystem(fs.RootDirectory, "");
 

@@ -32,7 +32,7 @@
 
             SectorStream.SeekToSector(16);
             var byteStream = new CdByteStream(SectorStream);
-            PrimaryVolumeDescriptor = PrimaryVolumeDescriptor.Read(byteStream);
+            PrimaryVolumeDescriptor = Serialization.StreamReader.Read<PrimaryVolumeDescriptor>(byteStream);
 
 
 

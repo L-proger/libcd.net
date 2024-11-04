@@ -19,6 +19,19 @@ namespace LibCD {
         }
 
 
+        public static T StructFromArray<T>(byte[] data, int offset = 0) where T : struct{
+            var tSize = Marshal.SizeOf<T>();
+            if(offset + tSize > data.Length) {
+                throw new Exception("Invalid buffer size");
+            }
+            var handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+            var result = Marshal.PtrToStructure<T>(handle.AddrOfPinnedObject() + offset);
+            handle.Free();
+            return result;
+        }
+
+
+
         public class StreamReader {
             private static byte[] _byteBuffer = new byte[1];
 
