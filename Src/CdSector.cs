@@ -81,13 +81,13 @@ namespace LibCD {
 
         public ReadOnlySpan<byte> GetData() {
             if(Mode == 1) {
-                return new ReadOnlySpan<byte>(_data, 0x10, 0x800);
+                return new ReadOnlySpan<byte>(_data, 0x10, 2048);
             }else if(Mode == 2) {
 
                 if(CdXaForm == 1) {
-                    return new ReadOnlySpan<byte>(_data, 0x18, 0x800);
+                    return new ReadOnlySpan<byte>(_data, 0x18, 2048);
                 } else {
-                    return new ReadOnlySpan<byte>(_data, 0x18, 0x914);
+                    return new ReadOnlySpan<byte>(_data, 0x18, 2324);
                 }
 
             } else {

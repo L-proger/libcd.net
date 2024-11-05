@@ -65,6 +65,18 @@ namespace LibCD.ISO9660 {
     }
 
 
+    public enum CdXaFileType {
+        Mode2Form1,
+        Mode2Form1Interleaved,
+        Mode2Form2,
+        Mode2Form2Interleaved,
+        Mode2Form1Form2,
+        Mode2Form1Form2Interleaved,
+        Mode2Form1Directory,
+        CdDa,
+        Invalid
+    }
+
 
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct CdXaDirectoryRecordSystemUseInformation {
@@ -79,6 +91,34 @@ namespace LibCD.ISO9660 {
         public byte Reserved3;
         public byte Reserved4;
         public byte Reserved5;
+
+
+        public CdXaFileType FileType {
+            get {
+                byte value = (byte)((byte)Attributes2 >> 3);
+                switch (value) {
+                    case 0b00001:
+                        return CdXaFileType.Mode2Form1;
+                    case 0b00101:
+                        return CdXaFileType.Mode2Form1Interleaved;
+                    case 0b00010:
+                        return CdXaFileType.Mode2Form2;
+                    case 0b00110:
+                        return CdXaFileType.Mode2Form2Interleaved;
+                    case 0b00011:
+                        return CdXaFileType.Mode2Form1Form2;
+                    case 0b00111:
+                        return CdXaFileType.Mode2Form1Form2Interleaved;
+                    case 0b10001:
+                        return CdXaFileType.Mode2Form1Directory;
+                    case 0b01000:
+                        return CdXaFileType.CdDa;
+                    default:
+                        return CdXaFileType.Invalid;
+                }
+            }
+        }
+
 
         public bool Valid {
             get {
